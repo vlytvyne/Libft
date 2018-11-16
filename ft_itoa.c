@@ -6,7 +6,7 @@
 /*   By: vlytvyne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 19:09:58 by vlytvyne          #+#    #+#             */
-/*   Updated: 2018/11/09 19:22:31 by vlytvyne         ###   ########.fr       */
+/*   Updated: 2018/11/13 13:32:32 by vlytvyne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ char			*ft_itoa(int n)
 	if (minus)
 		str[i++] = '-';
 	str[i] = '\0';
-	str = ft_strrev(str);
+	str = strrev(str);
 	return (str);
 }

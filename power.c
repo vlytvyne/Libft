@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_add_end.c                                   :+:      :+:    :+:   */
+/*   power.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlytvyne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/04 19:21:16 by vlytvyne          #+#    #+#             */
-/*   Updated: 2018/11/04 19:24:59 by vlytvyne         ###   ########.fr       */
+/*   Created: 2018/11/16 12:15:46 by vlytvyne          #+#    #+#             */
+/*   Updated: 2018/11/16 12:34:06 by vlytvyne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_lst_add_end(t_list *root, t_list *new)
+int		power(int num, int pow)
 {
-	while (root->next)
-		root = root->next;
-	root->next = new;
+	int multiplier;
+
+	multiplier = num;
+	if (pow == 0 || num == 1)
+		return (1);
+	while (pow > 1)
+	{
+		num *= multiplier;
+		pow--;
+	}
+	return (num);
 }

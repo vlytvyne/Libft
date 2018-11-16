@@ -1,35 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   get_abs.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlytvyne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/23 11:39:13 by vlytvyne          #+#    #+#             */
-/*   Updated: 2018/11/14 19:17:09 by vlytvyne         ###   ########.fr       */
+/*   Created: 2018/11/13 13:19:25 by vlytvyne          #+#    #+#             */
+/*   Updated: 2018/11/15 17:40:41 by vlytvyne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
+#include "limits.h"
 
-char	*ft_strdup(const char *src)
+int		get_abs(int num)
 {
-	int		i;
-	int		size;
-	char	*dup;
-
-	i = 0;
-	if (src == NULL)
-		return (NULL);
-	size = (int)ft_strlen(src) + 1;
-	if (!(dup = (char*)malloc(sizeof(char) * size)))
-		return (0);
-	while (src[i])
-	{
-		dup[i] = src[i];
-		i++;
-	}
-	dup[i] = '\0';
-	return (dup);
+	if (num == INT_MIN)
+		return (-42);
+	return (num < 0 ? num * -1 : num);
 }

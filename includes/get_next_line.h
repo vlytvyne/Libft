@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlytvyne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/23 11:39:13 by vlytvyne          #+#    #+#             */
-/*   Updated: 2018/11/14 19:17:09 by vlytvyne         ###   ########.fr       */
+/*   Created: 2018/10/29 13:52:59 by vlytvyne          #+#    #+#             */
+/*   Updated: 2018/10/29 13:53:04 by vlytvyne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-char	*ft_strdup(const char *src)
+# define BUFF_SIZE 32
+# define SUPPORTED_THREADS 255
+
+typedef struct		s_fd_record
 {
-	int		i;
-	int		size;
-	char	*dup;
+	int				fd;
+	char			*buff;
+}					t_fd_record;
 
-	i = 0;
-	if (src == NULL)
-		return (NULL);
-	size = (int)ft_strlen(src) + 1;
-	if (!(dup = (char*)malloc(sizeof(char) * size)))
-		return (0);
-	while (src[i])
-	{
-		dup[i] = src[i];
-		i++;
-	}
-	dup[i] = '\0';
-	return (dup);
-}
+typedef enum		e_give_status
+{
+	ERROR = -1,
+	NOTHING_TO_GIVE,
+	LINE_IS_GIVEN
+}					t_give_status;
+
+int					get_next_line(const int fd, char **line);
+
+#endif

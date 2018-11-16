@@ -6,14 +6,14 @@
 /*   By: vlytvyne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 20:38:31 by vlytvyne          #+#    #+#             */
-/*   Updated: 2018/10/26 20:44:02 by vlytvyne         ###   ########.fr       */
+/*   Updated: 2018/11/16 12:28:55 by vlytvyne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char	*ft_strrev(char *str)
+char	*strrev(char *str)
 {
 	int		i;
 	int		j;

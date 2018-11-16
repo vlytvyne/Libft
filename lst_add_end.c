@@ -1,35 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lst_add_end.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlytvyne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/23 11:39:13 by vlytvyne          #+#    #+#             */
-/*   Updated: 2018/11/14 19:17:09 by vlytvyne         ###   ########.fr       */
+/*   Created: 2018/11/04 19:21:16 by vlytvyne          #+#    #+#             */
+/*   Updated: 2018/11/13 13:23:30 by vlytvyne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
+void	lst_add_end(t_list *root, t_list *new)
 {
-	int		i;
-	int		size;
-	char	*dup;
-
-	i = 0;
-	if (src == NULL)
-		return (NULL);
-	size = (int)ft_strlen(src) + 1;
-	if (!(dup = (char*)malloc(sizeof(char) * size)))
-		return (0);
-	while (src[i])
-	{
-		dup[i] = src[i];
-		i++;
-	}
-	dup[i] = '\0';
-	return (dup);
+	while (root->next)
+		root = root->next;
+	root->next = new;
 }
