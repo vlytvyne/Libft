@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static long double	fabs(long double num)
 {
@@ -35,11 +34,6 @@ static void			fill_zeros(char *str, char *itoa_ret, int precision)
 		ft_strcat(str, "0");
 }
 
-static char			*get_itoa_answer(long double fp)
-{
-	return ((float)fp > (int)fp ? itoa_base(fp + 1, 10) : itoa_base(fp, 10));
-}
-
 char				*ftoa(long double num, unsigned int precision)
 {
 	int			ip;
@@ -61,14 +55,9 @@ char				*ftoa(long double num, unsigned int precision)
 	{
 		ft_strcat(str, ".");
 		fp = fp * power(10, precision);
-		itoa_ret = get_itoa_answer(fp);
+		itoa_ret = (float)fp > (int)fp ? ft_itoa(fp + 1) : ft_itoa(fp);
 		fill_zeros(str, itoa_ret, precision);
 		cat_free(str, itoa_ret);
 	}
 	return (str);
-}
-
-int					main(void)
-{
-	printf("%s\n", ftoa(-123.7, 5));
 }
