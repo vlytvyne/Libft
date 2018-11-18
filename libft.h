@@ -87,14 +87,15 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list*));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list*));
 
+void				lst_add_end(t_list *root, t_list *new);
 int					power(int num, int pow);
 char				*strrev(char *str);
 int					is_whitespace(char c);
-void				lst_add_end(t_list *root, t_list *new);
 int					get_abs(int num);
 char				*itoa_base(long long int num, int base);
 char				*uitoa_base(unsigned long long int num, int base);
 char				*btoa(long long int num, int bytes);
+char				*ftoa(long double num, unsigned int precision);
 void				capitalize(char *str);
 
 #endif
