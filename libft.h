@@ -94,5 +94,7 @@ void				lst_add_end(t_list *root, t_list *new);
 int					get_abs(int num);
 char				*itoa_base(long long int num, int base);
 char				*uitoa_base(unsigned long long int num, int base);
+char				*btoa(long long int num, int bytes);
+void				capitalize(char *str);
 
 #endif
