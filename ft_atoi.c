@@ -18,6 +18,8 @@ int			ft_atoi(const char *str)
 	int res;
 
 	res = 0;
+	if (str == NULL)
+		return (0);
 	while (is_whitespace(*str))
 		str++;
 	if (*str == '-')
@@ -31,8 +33,6 @@ int			ft_atoi(const char *str)
 		if (*str == '+')
 			str++;
 	}
-	while (*str == '0')
-		str++;
 	while (ft_isdigit(*str))
 	{
 		res = (res * 10) + (*str - '0');

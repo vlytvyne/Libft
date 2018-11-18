@@ -50,7 +50,7 @@ char		*ft_strtrim(char const *s)
 	if (s == 0)
 		return (0);
 	size = count_size(&s);
-	if (!(tr_str = (char*)malloc(sizeof(char) * (size + 1))))
+	if (!(tr_str = ft_strnew(size)))
 		return (0);
 	while (i < size)
 	{

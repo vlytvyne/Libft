@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   capitalize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlytvyne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/27 19:40:27 by vlytvyne          #+#    #+#             */
-/*   Updated: 2018/10/27 19:45:48 by vlytvyne         ###   ########.fr       */
+/*   Created: 2018/10/24 10:18:19 by vlytvyne          #+#    #+#             */
+/*   Updated: 2018/10/24 10:21:50 by vlytvyne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+void	capitalize(char *str)
 {
-	if (new == NULL || alst == NULL)
+	int	i;
+
+	i = 1;
+	if (str == NULL)
 		return ;
-	new->next = *alst;
-	*alst = new;
+	str[0] = ft_toupper(str[0]);
+	while (str[i])
+	{
+		if (is_whitespace(str[i - 1]))
+			str[i] = ft_toupper(str[i]);
+		else
+			str[i] = ft_tolower(str[i]);
+		i++;
+	}
 }
