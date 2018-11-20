@@ -6,11 +6,12 @@
 /*   By: vlytvyne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 14:43:28 by vlytvyne          #+#    #+#             */
-/*   Updated: 2018/10/26 15:09:22 by vlytvyne         ###   ########.fr       */
+/*   Updated: 2018/11/20 21:30:11 by vlytvyne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
 static int	count_size(char const **s)
 {
