@@ -6,13 +6,13 @@
 /*   By: vlytvyne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:59:31 by vlytvyne          #+#    #+#             */
-/*   Updated: 2018/11/13 13:32:04 by vlytvyne         ###   ########.fr       */
+/*   Updated: 2018/11/19 12:39:44 by vlytvyne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*btoa(long long int num, int bytes)
+char	*btoa(long long int num, unsigned int bytes)
 {
 	long long int	binary;
 	int				till;
