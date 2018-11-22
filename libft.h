@@ -6,7 +6,7 @@
 /*   By: vlytvyne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/24 12:51:55 by vlytvyne          #+#    #+#             */
-/*   Updated: 2018/11/19 12:40:02 by vlytvyne         ###   ########.fr       */
+/*   Updated: 2018/11/21 16:44:00 by vlytvyne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <errno.h>
 
 typedef struct		s_list
 {
@@ -88,7 +89,7 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list*));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list*));
 
 void				lst_add_end(t_list *root, t_list *new);
-int					power(long long int num, int pow);
+long long int		power(long long int num, int pow);
 char				*strrev(char *str);
 int					is_whitespace(char c);
 int					get_abs(int num);
@@ -97,5 +98,9 @@ char				*uitoa_base(unsigned long long int num, int base);
 char				*btoa(long long int num, unsigned int bytes);
 char				*ftoa(long double num, unsigned int precision);
 void				capitalize(char *str);
+char				*ultimate_join(int howmuch, ...);
+void				sort_list_ascii(t_list *root);
+void				sort_list(t_list *root, int (*cmp)(t_list*, t_list*));
+void				reverse_list(t_list **root);
 
 #endif

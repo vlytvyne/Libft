@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   reverse_list.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlytvyne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/22 19:59:05 by vlytvyne          #+#    #+#             */
-/*   Updated: 2018/10/22 20:25:25 by vlytvyne         ###   ########.fr       */
+/*   Created: 2018/11/22 20:47:47 by vlytvyne          #+#    #+#             */
+/*   Updated: 2018/11/22 20:47:48 by vlytvyne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+void	reverse_list(t_list **root)
 {
-	unsigned char *uns_s1;
-	unsigned char *uns_s2;
+	t_list	*cur;
+	t_list	*prev;
+	t_list	*next;
 
-	uns_s1 = (unsigned char*)s1;
-	uns_s2 = (unsigned char*)s2;
-	if (s1 == NULL || s2 == NULL)
-		return (0);
-	while (*uns_s1 && *uns_s2)
+	cur = *root;
+	prev = NULL;
+	while (cur)
 	{
-		if (*uns_s1 - *uns_s2 != 0)
-			return (*uns_s1 - *uns_s2);
-		uns_s1++;
-		uns_s2++;
+		next = cur->next;
+		cur->next = prev;
+		prev = cur;
+		cur = next;
 	}
-	return ((unsigned char)*uns_s1 - *uns_s2);
+	*root = prev;
 }

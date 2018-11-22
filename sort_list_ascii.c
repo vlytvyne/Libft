@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   sort_list_ascii.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlytvyne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/22 19:59:05 by vlytvyne          #+#    #+#             */
-/*   Updated: 2018/10/22 20:25:25 by vlytvyne         ###   ########.fr       */
+/*   Created: 2018/11/22 19:09:18 by vlytvyne          #+#    #+#             */
+/*   Updated: 2018/11/22 19:09:37 by vlytvyne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+static int	cmp_ascci(t_list *first, t_list *second)
 {
-	unsigned char *uns_s1;
-	unsigned char *uns_s2;
+	return (ft_strcmp((char*)first->content, (char*)second->content));
+}
 
-	uns_s1 = (unsigned char*)s1;
-	uns_s2 = (unsigned char*)s2;
-	if (s1 == NULL || s2 == NULL)
-		return (0);
-	while (*uns_s1 && *uns_s2)
-	{
-		if (*uns_s1 - *uns_s2 != 0)
-			return (*uns_s1 - *uns_s2);
-		uns_s1++;
-		uns_s2++;
-	}
-	return ((unsigned char)*uns_s1 - *uns_s2);
+void		sort_list_ascii(t_list *root)
+{
+	sort_list(root, cmp_ascci);
 }

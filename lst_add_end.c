@@ -12,9 +12,11 @@
 
 #include "libft.h"
 
-void	lst_add_end(t_list *root, t_list *new)
+void	lst_add_end(t_list *head, t_list *new)
 {
-	while (root->next)
-		root = root->next;
-	root->next = new;
+	if (head == NULL || new == NULL)
+		return ;
+	while (head->next)
+		head = head->next;
+	head->next = new;
 }

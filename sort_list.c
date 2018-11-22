@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   sort_list.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlytvyne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/22 19:59:05 by vlytvyne          #+#    #+#             */
-/*   Updated: 2018/10/22 20:25:25 by vlytvyne         ###   ########.fr       */
+/*   Created: 2018/11/22 20:33:48 by vlytvyne          #+#    #+#             */
+/*   Updated: 2018/11/22 20:33:55 by vlytvyne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+void	sort_list(t_list *root, int (*cmp)(t_list*, t_list*))
 {
-	unsigned char *uns_s1;
-	unsigned char *uns_s2;
+	t_list	*lst;
+	void	*tmp;
+	int		swaped;
 
-	uns_s1 = (unsigned char*)s1;
-	uns_s2 = (unsigned char*)s2;
-	if (s1 == NULL || s2 == NULL)
-		return (0);
-	while (*uns_s1 && *uns_s2)
+	swaped = 1;
+	while (swaped)
 	{
-		if (*uns_s1 - *uns_s2 != 0)
-			return (*uns_s1 - *uns_s2);
-		uns_s1++;
-		uns_s2++;
+		swaped = 0;
+		lst = root;
+		while (lst->next)
+		{
+			if (cmp(lst, lst->next) > 0)
+			{
+				tmp = lst->next->content;
+				lst->next->content = lst->content;
+				lst->content = tmp;
+				swaped = 1;
+			}
+			lst = lst->next;
+		}
 	}
-	return ((unsigned char)*uns_s1 - *uns_s2);
 }
