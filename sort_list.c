@@ -18,6 +18,8 @@ void	sort_list(t_list *root, int (*cmp)(t_list*, t_list*))
 	void	*tmp;
 	int		swaped;
 
+	if (root == NULL || cmp == NULL)
+		return ;
 	swaped = 1;
 	while (swaped)
 	{

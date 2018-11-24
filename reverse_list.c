@@ -18,6 +18,8 @@ void	reverse_list(t_list **root)
 	t_list	*prev;
 	t_list	*next;
 
+	if (root == NULL || *root == NULL)
+		return ;
 	cur = *root;
 	prev = NULL;
 	while (cur)
