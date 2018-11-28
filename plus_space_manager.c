@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   plus_space_manager.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlytvyne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/27 19:31:10 by vlytvyne          #+#    #+#             */
-/*   Updated: 2018/10/27 19:34:17 by vlytvyne         ###   ########.fr       */
+/*   Created: 2018/11/17 17:50:33 by vlytvyne          #+#    #+#             */
+/*   Updated: 2018/11/17 17:50:35 by vlytvyne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "printf.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void*, size_t))
+void	plus_space_manager(t_form form, char **src)
 {
-	t_list *next;
+	char *new_str;
 
-	if (*alst == NULL)
-		return ;
-	if (!(next = (*alst)->next))
+	if (ft_strchr("dif", form.type) &&
+		(form.space || form.plus) && **src != '-')
 	{
-		ft_lstdelone(alst, del);
-		return ;
+		if (form.plus)
+			new_str = ft_strjoin("+", *src);
+		else
+			new_str = ft_strjoin(" ", *src);
+		free(*src);
+		*src = new_str;
 	}
-	ft_lstdelone(alst, del);
-	ft_lstdel(&next, del);
 }
