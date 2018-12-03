@@ -1,0 +1,1 @@
+ls | find . -name "*.c" | cut -c 3- | tr '\n' ' '> files
