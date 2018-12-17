@@ -25,6 +25,12 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct		s_coor
+{
+	int				x;
+	int				y;
+}					t_coor;
+
 int					ft_atoi(const char *str);
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
