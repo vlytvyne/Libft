@@ -13,8 +13,8 @@
 #include <stdlib.h>
 #include "printf.h"
 
-void	error(char *msg)
+void	error_exit(char *msg)
 {
-	ft_printf("%tERROR:%t %s", B_RED, EOC, msg);
+	ft_printf("%tERROR:%t %s\n", B_RED, EOC, msg);
 	exit(errno);
 }
