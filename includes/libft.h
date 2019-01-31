@@ -6,7 +6,7 @@
 /*   By: vlytvyne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/24 12:51:55 by vlytvyne          #+#    #+#             */
-/*   Updated: 2018/12/20 18:30:48 by vlytvyne         ###   ########.fr       */
+/*   Updated: 2019/01/30 18:59:27 by vlytvyne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct		s_coor
 {
 	int				x;
 	int				y;
+	int				z;
 }					t_coor;
 
 int					ft_atoi(const char *str);
@@ -110,5 +111,8 @@ void				sort_list(t_list *root, int (*cmp)(t_list*, t_list*));
 void				reverse_list(t_list **root);
 void				zero_vars(int howmuch, ...);
 void				error_exit(char *msg);
+void				show_usage(char *msg);
+int					count_words(char const *s, char c);
+int					atoi_hex(char *str);
 
 #endif

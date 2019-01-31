@@ -6,32 +6,11 @@
 /*   By: vlytvyne <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 16:26:01 by vlytvyne          #+#    #+#             */
-/*   Updated: 2018/10/26 16:26:42 by vlytvyne         ###   ########.fr       */
+/*   Updated: 2019/01/30 20:29:33 by vlytvyne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	count_words(char const *s, char c)
-{
-	int words;
-	int	word_started;
-
-	words = 0;
-	word_started = 0;
-	while (*s)
-	{
-		if (*s != c && !word_started)
-		{
-			words++;
-			word_started = 1;
-		}
-		if (*s == c)
-			word_started = 0;
-		s++;
-	}
-	return (words);
-}
 
 static char	*create_str(char **s, char c)
 {
@@ -78,6 +57,6 @@ char		**ft_strsplit(char const *s, char c)
 		}
 		s++;
 	}
-	words[i] = 0;
+	words[i] = NULL;
 	return (words);
 }
