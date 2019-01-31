@@ -6,7 +6,7 @@
 /*   By: vlytvyne <vlytvyne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 13:56:45 by vlytvyne          #+#    #+#             */
-/*   Updated: 2019/01/31 13:56:51 by vlytvyne         ###   ########.fr       */
+/*   Updated: 2019/01/31 14:41:19 by vlytvyne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int			atoi_hex(char *str)
 	int	res;
 	int	i;
 
+	if (str == NULL)
+		return (0);
 	i = 0;
 	res = 0;
 	while (str[i])
